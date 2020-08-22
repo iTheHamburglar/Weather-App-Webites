@@ -12,11 +12,17 @@ const getForecast = (latitude, longitude, callback) =>{
         }else if(body.error){
                 callback("Unable to find location", undefined);
         }else{
-            const forecast = `The current forecast is  ${body.current.temperature} degrees out. Feels like ${body.current.feelslike} degrees out.`;
-            callback(undefined, forecast);
+
+            const forecastInfo = {
+                temperatureData: `The current forecast is  ${body.current.temperature} degrees out. Feels like ${body.current.feelslike} degrees out.`,
+                humidity: `Humidity ${body.current.humidity}%`,
+                windData: body.current.wind_speed > 0 ? `Wind speed ${body.current.wind_speed}mph from ${body.current.wind_dir}` : undefined,
+                icon: body.current.weather_icons[0]
+            }
+
+            callback(undefined, forecastInfo);
         }
     });
 }
-
 
 module.exports = {getForecast : getForecast}

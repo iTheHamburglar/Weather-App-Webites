@@ -71,9 +71,9 @@ app.get("/forecast", (req, res) =>{
             }
 
             res.send({
-                location: location,
-                forecast: data
-            })
+                weatherInfo: data,
+                location: location
+            });
         });
         
     });
