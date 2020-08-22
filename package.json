@@ -5,12 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.4",
-    "hbs": "^4.0.1",
+    "hbs": "^4.1.1",
     "request": "^2.88.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js,hbs"
   },
   "keywords": [],
   "author": "",
