@@ -8,6 +8,7 @@ const forecast = require("../src/utils/forecast");
 
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define express configuration paths  
 const publicDirPath = path.join(__dirname, "../public");
@@ -99,6 +100,6 @@ app.get("*", (req, res) =>{
 });
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Litening on port 3000");
 });
